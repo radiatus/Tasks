@@ -1,0 +1,4 @@
+D:\VS10P\Task1\Task1\bin\Debug\Task1.exe
+D:\VS10P\Task1\Task1\bin\Debug\Task1.pdb
+D:\VS10P\Task1\Task1\obj\x86\Debug\Task1.exe
+D:\VS10P\Task1\Task1\obj\x86\Debug\Task1.pdb
