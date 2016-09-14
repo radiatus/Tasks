@@ -44,20 +44,35 @@ namespace Task2
 
             double distation = Math.Sqrt((xTwo - xOne) * (xTwo - xOne) + (yTwo - yOne) * (yTwo - yOne));
 
-            if ((distation < rOne + rTwo) && (distation < rOne + rTwo))
+            double rPlus = rOne + rTwo;
+            double rMenus = rOne - rTwo;
+
+            if ((distation < rPlus) && (distation < rMenus))
             {
-
+                Console.WriteLine("пересекаются в 2-х точках");
             }
-
+            else if (distation == rPlus)
+            {
+                Console.WriteLine("касаются (1 общая точка) с внешней стороны");
+            }
+            else if (distation > rPlus)
+            {
+                Console.WriteLine("не пересекаются не вписаны одна в другую");
+            }
+            else if (distation == rMenus)
+            {
+                Console.WriteLine("касаются (1 общая точка) с внутренней стороны");
+            }
+            else 
+            {
+                Console.WriteLine("не пересекаются одна окружность вписана в другую");
+            }
             /* 
              * пересекаются в 2-х точках, касаются (1 общая точка) с внешней стороны,
              * касаются (1 общая точка) с внутренней стороны, не пересекаются не вписаны одна в другую,
              * не пересекаются одна окружность вписана в другую
              */
-
-
             Console.ReadKey();
-
         }
     }
 }

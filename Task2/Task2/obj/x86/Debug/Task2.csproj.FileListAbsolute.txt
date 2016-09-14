@@ -5,3 +5,6 @@
 \\csfs\home$\borisov_a_d\Profile\My Documents\Visual Studio 2010\Projects\Task2\Task2\obj\x86\Debug\Task2.pdb
 E:\VS10PRJ\Tasks\Task2\Task2\obj\x86\Debug\Task2.exe
 E:\VS10PRJ\Tasks\Task2\Task2\obj\x86\Debug\Task2.pdb
+E:\VS10PRJ\Tasks\Task2\Task2\bin\Debug\Task2.exe
+E:\VS10PRJ\Tasks\Task2\Task2\bin\Debug\Task2.pdb
+E:\VS10PRJ\Tasks\Task2\Task2\obj\x86\Debug\Task2.csprojResolveAssemblyReference.cache
