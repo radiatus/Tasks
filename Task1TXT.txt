@@ -1,4 +1,4 @@
-п»їusing System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +15,7 @@ namespace Task1
 
             while (!Double.TryParse(sDouble, out nDouble))
             {
-                Console.Write("Р’С‹ РІРІРµР»Рё РЅРµ РїСЂР°РІРёР»СЊРЅРѕРµ С‡РёСЃР»Рѕ, РїРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°: ");
+                Console.Write("Вы ввели не правильное число, попробуйте снова: ");
                 sDouble = Console.ReadLine();
             }
 
@@ -24,8 +24,8 @@ namespace Task1
 
         static void Main(string[] args)
         {
-            Console.WriteLine("\nР РµС€РµРЅРёРµ СЃРёСЃС‚РµРјС‹ Р»РёРЅРµР№РЅС‹С… СѓСЂР°РІРЅРµРЅРёР№ ax + by = c Рё dx + ey = f");
-            Console.WriteLine("\nР’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёСЏ a, b, c РґР»СЏ СѓСЂР°РІРЅРµРЅРёСЏ ax + by = c");
+            Console.WriteLine("\nРешение системы линейных уравнений ax + by = c и dx + ey = f");
+            Console.WriteLine("\nВведите значения a, b, c для уравнения ax + by = c");
 
             Console.Write("a = ");
             a = WriteDouble(Console.ReadLine());
@@ -36,7 +36,7 @@ namespace Task1
             Console.Write("c = ");
             c = WriteDouble(Console.ReadLine());
 
-            Console.WriteLine("\nР’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёСЏ d, e, f РґР»СЏ СѓСЂР°РІРЅРµРЅРёСЏ dx + ey = f");
+            Console.WriteLine("\nВведите значения d, e, f для уравнения dx + ey = f");
 
             Console.Write("d = ");
             d = WriteDouble(Console.ReadLine());
@@ -50,11 +50,11 @@ namespace Task1
             delta = a * e - b * d;
             if (delta == 0)
             {
-                Console.WriteLine("РЎРёСЃС‚РµРјР° РЅРµ РёРјРµРµС‚ СЂРµС€РµРЅРёСЏ");
+                Console.WriteLine("Система не имеет решения");
                 Main(null);
             }
 
-            Console.WriteLine("\nР РµС€РµРЅРёРµРј СЃРёСЃС‚РµРјС‹ СѓСЂР°РІРЅРµРЅРёР№ СЏРІР»СЏСЋС‚СЃСЏ x = {0} Рё y = {1}", (c * e - b * f) / delta, (a * f - c * d) / delta);
+            Console.WriteLine("\nРешением системы уравнений являются x = {0} и y = {1}", (c * e - b * f) / delta, (a * f - c * d) / delta);
 
             Console.ReadKey();
         }

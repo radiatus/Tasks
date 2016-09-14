@@ -3,3 +3,13 @@ D:\VS10P\Task1\Task1\bin\Debug\Task1.pdb
 D:\VS10P\Task1\Task1\obj\x86\Debug\Task1.exe
 D:\VS10P\Task1\Task1\obj\x86\Debug\Task1.pdb
 D:\VS10P\Task1\Task1\obj\x86\Debug\Task1.csprojResolveAssemblyReference.cache
+F:\VS10PRJ\Tasks\Task1\Task1\obj\x86\Debug\Task1.exe
+F:\VS10PRJ\Tasks\Task1\Task1\obj\x86\Debug\Task1.pdb
+F:\VS10PRJ\Tasks\Task1\Task1\bin\Debug\Task1.exe
+F:\VS10PRJ\Tasks\Task1\Task1\bin\Debug\Task1.pdb
+F:\VS10PRJ\Tasks\Task1\Task1\obj\x86\Debug\Task1.csprojResolveAssemblyReference.cache
+E:\VS10PRJ\Tasks\Task1\Task1\obj\x86\Debug\Task1.exe
+E:\VS10PRJ\Tasks\Task1\Task1\obj\x86\Debug\Task1.pdb
+E:\VS10PRJ\Tasks\Task1\Task1\bin\Debug\Task1.exe
+E:\VS10PRJ\Tasks\Task1\Task1\bin\Debug\Task1.pdb
+E:\VS10PRJ\Tasks\Task1\Task1\obj\x86\Debug\Task1.csprojResolveAssemblyReference.cache
