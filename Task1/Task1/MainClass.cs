@@ -53,7 +53,7 @@ namespace Task1
                 Console.WriteLine("Система не имеет решения");
                 Main(null);
             }
-
+            //heloy
             Console.WriteLine("\nРешением системы уравнений являются x = {0} и y = {1}", (c * e - b * f) / delta, (a * f - c * d) / delta);
 
             Console.ReadKey();

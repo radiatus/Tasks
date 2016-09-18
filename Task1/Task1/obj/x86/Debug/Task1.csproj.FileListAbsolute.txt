@@ -13,3 +13,5 @@ E:\VS10PRJ\Tasks\Task1\Task1\obj\x86\Debug\Task1.pdb
 E:\VS10PRJ\Tasks\Task1\Task1\bin\Debug\Task1.exe
 E:\VS10PRJ\Tasks\Task1\Task1\bin\Debug\Task1.pdb
 E:\VS10PRJ\Tasks\Task1\Task1\obj\x86\Debug\Task1.csprojResolveAssemblyReference.cache
+D:\Study\C#\Tasks\Task1\Task1\obj\x86\Debug\Task1.exe
+D:\Study\C#\Tasks\Task1\Task1\obj\x86\Debug\Task1.pdb
