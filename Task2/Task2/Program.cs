@@ -7,11 +7,12 @@ namespace Task2
 {
     class Program
     {
-        static double WriteDouble(string sDouble) 
+        static double WriteDouble() 
         { 
             double nDouble;
+            string sDouble = Console.ReadLine();
 
-            while(!Double.TryParse(sDouble, out nDouble))
+            while (!Double.TryParse(sDouble, out nDouble))
             {
                 sDouble = Console.ReadLine();
             }
@@ -24,23 +25,23 @@ namespace Task2
 
             Console.WriteLine("(X;Y) и R для первой окружности");
             Console.Write("X = ");
-            double xOne = WriteDouble(Console.ReadLine());
+            double xOne = WriteDouble();
 
             Console.Write("Y = ");
-            double yOne = WriteDouble(Console.ReadLine());
+            double yOne = WriteDouble();
 
             Console.Write("R = ");
-            double rOne = WriteDouble(Console.ReadLine());
+            double rOne = WriteDouble();
 
             Console.WriteLine("(X;Y) и R для второй окружности");
             Console.Write("X = ");
-            double xTwo = WriteDouble(Console.ReadLine());
+            double xTwo = WriteDouble();
 
             Console.Write("Y = ");
-            double yTwo = WriteDouble(Console.ReadLine());
+            double yTwo = WriteDouble();
 
             Console.Write("R = ");
-            double rTwo = WriteDouble(Console.ReadLine());
+            double rTwo = WriteDouble();
 
             double distation = Math.Sqrt((xTwo - xOne) * (xTwo - xOne) + (yTwo - yOne) * (yTwo - yOne));
 
