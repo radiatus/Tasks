@@ -10,7 +10,6 @@ namespace Task3
     {
         static void Main(string[] args)
         {
-            int[] massive;
             int a, b, c;
             for (a = 1;a<20;a++)
             {
@@ -21,7 +20,6 @@ namespace Task3
                         if ((a*a + b*b == c*c))
                         {
                             Console.WriteLine("{0} {1} {2}",a,b,c);
-
                         }
                     }
                 }
