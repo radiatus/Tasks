@@ -53,12 +53,27 @@ namespace Task4
             double E = ReadDouble();
 
             double summa = 0;
-            for (int i = 1;i<N;i++)
+            double summaE = 0;
+            double summaE10 = 0;
+            for (int i = 1;i<=N;i++)
             {
-                double an = Math.Pow(x,2*(N-1))/factorial(2*N-1); // проблема со знаком
-                summa = summa - an;
-                Console.WriteLine(summa);
+                double an = Math.Pow(x,2*(i-1))/factorial(2*i-1); // проблема со знаком
+
+                double an2;
+                if (i % 2 == 0)
+                    an2 = -an;
+                summa = summa + an;
+
+                if (an > E)
+                    summaE = summaE + an;
+
+                if (an > E/10)
+                    summaE10 = summaE10 + an;
+
             }
+            Console.WriteLine("Сумма N слагаемых = " + summa);
+            Console.WriteLine("Сумма N слагаемых > E = " + summaE);
+            Console.WriteLine("Сумма N слагаемых > E/10 = " + summaE10);
             Console.ReadKey();
         }
     }
