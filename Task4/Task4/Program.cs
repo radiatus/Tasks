@@ -35,7 +35,7 @@ namespace Task4
             return nDouble;
         }
 
-        static int factorial(int numb)
+        static int fact(int numb)
         {
             int res = 1;
             for (int i = numb; i > 1; i--)
@@ -57,7 +57,7 @@ namespace Task4
             double summaE10 = 0;
             for (int i = 1;i<=N;i++)
             {
-                double an = Math.Pow(x,2*(i-1))/factorial(2*i-1);
+                double an = Math.Pow(x,2*(i-1))/fact(2*i-1);
 
                 double an2;
                 if (i % 2 == 0)
@@ -71,9 +71,9 @@ namespace Task4
                     summaE10 = summaE10 + an;
 
             }
-            Console.WriteLine("Сумма N слагаемых = " + summa);
-            Console.WriteLine("Сумма N слагаемых > E = " + summaE);
-            Console.WriteLine("Сумма N слагаемых > E/10 = " + summaE10);
+            Console.WriteLine("Сумма N слагаемых = {0:0.0000}", summa);
+            Console.WriteLine("Сумма N слагаемых > E = {0:0.0000}", summaE);
+            Console.WriteLine("Сумма N слагаемых > E/10 = {0:0.0000}", summaE10);
             Console.ReadKey();
         }
     }
