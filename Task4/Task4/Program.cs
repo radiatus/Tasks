@@ -58,11 +58,16 @@ namespace Task4
             for (int i = 1;i<=N;i++)
             {
                 double an = Math.Pow(x,2*(i-1))/fact(2*i-1);
-
-                double an2;
+                double an2 = 0;
                 if (i % 2 == 0)
+                {
                     an2 = -an;
-                summa = summa + an;
+                    summa = summa + an2;
+                }
+                else
+                {
+                    summa = summa + an;
+                }
 
                 if (an > E)
                     summaE = summaE + an;

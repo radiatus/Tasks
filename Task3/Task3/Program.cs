@@ -11,7 +11,7 @@ namespace Task3
         static void Main(string[] args)
         {
             int a, b, c;
-            for (a = 1;a<20;a++)
+            for (a = 1;a<100;a++)
             {
                 for (b = 1;b<20;b++)
                 {
