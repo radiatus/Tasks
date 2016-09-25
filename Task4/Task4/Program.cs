@@ -57,7 +57,7 @@ namespace Task4
             double summaE10 = 0;
             for (int i = 1;i<=N;i++)
             {
-                double an = Math.Pow(x,2*(i-1))/factorial(2*i-1); // проблема со знаком
+                double an = Math.Pow(x,2*(i-1))/factorial(2*i-1);
 
                 double an2;
                 if (i % 2 == 0)
