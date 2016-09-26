@@ -35,10 +35,10 @@ namespace Task4
             return nDouble;
         }
 
-        static int fact(int numb)
+        static double fact(double numb)
         {
-            int res = 1;
-            for (int i = numb; i > 1; i--)
+            double res = 1;
+            for (double i = numb; i > 1; i--)
                 res *= i;
             return res;
         }
@@ -55,9 +55,9 @@ namespace Task4
             double summa = 0;
             double summaE = 0;
             double summaE10 = 0;
-            for (int i = 1;i<=N;i++)
+            for (double i = 1;i<=N;i++)
             {
-                double an = Math.Pow(x,2*(i-1))/fact(2*i-1);
+                double an = Math.Pow(-1.00,i)*Math.Pow(x,2*(i-1))/fact(2*i-1);
                 double an2 = 0;
                 if (i % 2 == 0)
                 {
@@ -74,7 +74,6 @@ namespace Task4
 
                 if (an > E/10)
                     summaE10 = summaE10 + an;
-
             }
             Console.WriteLine("Сумма N слагаемых = {0:0.0000}", summa);
             Console.WriteLine("Сумма N слагаемых > E = {0:0.0000}", summaE);

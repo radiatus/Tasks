@@ -10,8 +10,12 @@ namespace Task3
     {
         static void Main(string[] args)
         {
-            int a, b, c;
-            for (a = 1;a<100;a++)
+            int a, b, c,temp=0;
+
+            int[,] massive = new int[20,2];
+            int[,] massive2 = new int[20, 2];
+
+            for (a = 1;a<20;a++)
             {
                 for (b = 1;b<20;b++)
                 {
@@ -19,11 +23,25 @@ namespace Task3
                     {
                         if ((a*a + b*b == c*c))
                         {
-                            Console.WriteLine("{0} {1} {2}",a,b,c);
+                            //Console.WriteLine("{0} {1} {2}",a,b,c);
+                            temp++;
+                            massive[temp - 1, 0] = a;
+                            massive[temp - 1, 1] = b;
+
                         }
                     }
                 }
             }
+            int w=0, e=0, r=0, t=0;
+            while (w<20)
+            {
+
+                massive[ w, 0] == ;
+                massive[ w, 1] == ;
+
+                w++;
+            }
+
             Console.ReadKey();
         }
     }
