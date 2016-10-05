@@ -10,35 +10,28 @@ namespace Task4
     {
         static double ReadDouble()
         {
-            string sDouble = Console.ReadLine();
-            double nDouble;
 
-            while (!Double.TryParse(sDouble, out nDouble))
+            double nDouble;
+            while (!Double.TryParse(Console.ReadLine(), out nDouble))
             {
                 Console.Write("Введите правильно: ");
-                sDouble = Console.ReadLine();
             }
-
             return nDouble;
         }
         static int ReadInt()
         {
-            string sDouble = Console.ReadLine();
-            int nDouble;
-
-            while (!Int32.TryParse(sDouble, out nDouble))
+            int nInt;
+            while (!Int32.TryParse(Console.ReadLine(), out nInt))
             {
                 Console.Write("Введите правильно: ");
-                sDouble = Console.ReadLine();
             }
-
-            return nDouble;
+            return nInt;
         }
 
-        static double fact(double numb)
+        static double Fact(double numb)
         {
             double res = 1;
-            for (double i = numb; i > 1; i--)
+            for (int i = 1; i < numb; i++)
                 res *= i;
             return res;
         }
@@ -52,44 +45,44 @@ namespace Task4
             Console.Write("E = ");
             double E = ReadDouble();
 
-            double summa = 0;
-            double summaE = 0;
-            double summaE10 = 0;
-            double summaN = 0;
-            int countE = 0;
-            int countE10 = 0;
-            for (int i = 1; i <= N; i++)
+            int i = 1;
+            double an = 1;
+            double summa = an, summaE = an, summaE10 = an, summaN = an;
+            int countE = 0, countE10 = 0;
+            do
             {
-                double an = Math.Pow(-1, i + 1) * Math.Pow(x, 2 * (i - 1)) / fact(2 * i - 1);
+                i++;
 
-                summa = summa + an;
-
-                if (Math.Abs(an) > E)
+                if (i <= N)
+                {
+                    summa = summa + an;
+                }
+                if (Math.Abs(an) > Math.Abs(E))
                 {
                     summaE = summaE + an;
                     countE++;
                 }
-
-                if (an > E / 10)
+                if (Math.Abs(an) > Math.Abs(E / 10))
                 {
                     summaE10 = summaE10 + an;
                     countE10++;
                 }
+                an = an * Math.Pow(-1, i - 1) * (x * x) / ((2 * i - 2) * (2 * i - 1));
+                //an = Math.Pow(-1, i + 1) * Math.Pow(x, 2 * (i - 1)) / Fact(2 * i - 1);
+            } while (i <= N || Math.Abs(an) > Math.Abs(E / 10));
 
-                summaN = Math.Sin(x) / x;
+            summaN = Math.Sin(x) / x;
+            Console.WriteLine("\nСумма N слагаемых = {0}", summa);
+            Console.WriteLine("Точное значение суммы N слагаемых  = {0}", summaN);
+            Console.WriteLine("Разница между точным значением и суммой N слагаемых = {0}", summaN - summa);
 
-            }
-            Console.WriteLine("\nСумма N слагаемых = {0:0.0000}", summa);
-            Console.WriteLine("Точное значение суммы N слагаемых  = {0:0.0000}", summaN);
-            Console.WriteLine("Разница между точным значением и суммой N слагаемых = {0:0.0000}", summaN - summa);
+            Console.WriteLine("\nСумма N слагаемых > E = {0}", summaE);
+            Console.WriteLine("N слагаемых для E = {0}", countE);
+            Console.WriteLine("Разница между точным значением и суммой слагаемых для E = {0}", summaN - summaE);
 
-            Console.WriteLine("\nСумма N слагаемых > E = {0:0.0000}", summaE);
-            Console.WriteLine("N слагаемых для E = {0:0.0000}", countE);
-            Console.WriteLine("Разница между точным значением и суммой слагаемых для E = {0:0.0000}", summaN - summaE);
-
-            Console.WriteLine("\nСумма N слагаемых > E/10 = {0:0.0000}", summaE10);
-            Console.WriteLine("N слагаемых для E/10 = {0:0.0000}", countE10);
-            Console.WriteLine("Разница между точным значением и суммой слагаемых для E/10 = {0:0.0000}", summaN - summaE10);
+            Console.WriteLine("\nСумма N слагаемых > E/10 = {0}", summaE10);
+            Console.WriteLine("N слагаемых для E/10 = {0}", countE10);
+            Console.WriteLine("Разница между точным значением и суммой слагаемых для E/10 = {0}", summaN - summaE10);
             Console.ReadKey();
         }
     }
