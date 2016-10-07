@@ -29,7 +29,6 @@ namespace Task5
         {
             Console.Write("Длина массива: ");
             uint N = ReadUint();
-            uint count = 0;
             uint[] mas = new uint[N];
             uint[] masM = new uint[N];
             Random rng = new Random();
@@ -39,6 +38,8 @@ namespace Task5
                 mas[i] = Convert.ToUInt32(Rand(rng));
             }
 
+
+            uint count = 0;
             for (uint i = 0; i < N; i++)
             {
                 if (i == mas.LongLength - 1)
@@ -49,12 +50,11 @@ namespace Task5
                 if ((mas[i] < mas[i+1])&&(mas[i] < mas[i - 1]))
                 {
                     masM[count] = mas[i];
-
                     count++;
                 }
             }
             Array.Sort(masM);
-            Console.WriteLine(masM[masM.Length-1]);
+            Console.Write("Максимальный из локальных минимумов: {0}", masM[masM.Length - 1]);
             Console.ReadKey();
         }
     }
