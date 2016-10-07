@@ -24,23 +24,37 @@ namespace Task5
         {
             return rng.Next(100);
         }
+
         static void Main(string[] args)
         {
             Console.Write("Длина массива: ");
             uint N = ReadUint();
+            uint count = 0;
             uint[] mas = new uint[N];
+            uint[] masM = new uint[N];
             Random rng = new Random();
 
-            for (uint i = 0;i<N;i++)
+            for (uint i = 0; i < N; i++)
             {
                 mas[i] = Convert.ToUInt32(Rand(rng));
             }
 
-            foreach (uint count in mas)
+            for (uint i = 0; i < N; i++)
             {
-                Console.WriteLine(count);
-            }
+                if (i == mas.LongLength - 1)
+                    break;
+                else if (i == 0)
+                    continue;
+               
+                if ((mas[i] < mas[i+1])&&(mas[i] < mas[i - 1]))
+                {
+                    masM[count] = mas[i];
 
+                    count++;
+                }
+            }
+            Array.Sort(masM);
+            Console.WriteLine(masM[masM.Length-1]);
             Console.ReadKey();
         }
     }
