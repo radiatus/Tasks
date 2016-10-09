@@ -45,7 +45,7 @@ namespace Task5
                 a = a + Convert.ToString(Rand(rng)) + " ";
             }
 
-            File.WriteAllText("E:\\masseve.txt", a, Encoding.Default);
+            File.WriteAllText(disk, a, Encoding.Default);
 
             StreamReader reader = new StreamReader(disk, Encoding.Default);
 
