@@ -35,20 +35,18 @@ namespace Task5
             Console.Write("Длина массива: ");
             uint N = ReadUint();
             uint[] mas = new uint[N];
-            uint[] masM = new uint[N];
-            string[] masS = new string[N];
-            string a = "";
+            uint[] masMin = new uint[N];
+            string[] masStr = new string[N];
             Random rng = new Random();
-
+            
+            string a = "";
             for (uint i = 0; i < N; i++)
             {
                 a = a + Convert.ToString(Rand(rng)) + " ";
             }
 
             File.WriteAllText(disk, a, Encoding.Default);
-
             StreamReader reader = new StreamReader(disk, Encoding.Default);
-
             string[] split = reader.ReadLine().Split(new Char[] { ' ', ',', '.', ':', '\t' });
 
             uint j = 0;
@@ -69,14 +67,15 @@ namespace Task5
                 else if (i == 0)
                     continue;
                
-                if ((mas[i] < mas[i+1])&&(mas[i] < mas[i - 1]))
+                if ((mas[i] < mas[i + 1]) && (mas[i] < mas[i - 1]))
                 {
-                    masM[count] = mas[i];
+                    masMin[count] = mas[i];
                     count++;
                 }
             }
-            Array.Sort(masM);
-            Console.Write("Максимальный из локальных минимумов: {0}", masM[masM.Length - 1]);
+
+            Array.Sort(masMin);
+            Console.Write("Максимальный из локальных минимумов: {0}", masMin[masMin.Length - 1]);
             Console.ReadKey();
         }
     }
