@@ -30,6 +30,8 @@ namespace Task5
 
         static void Main(string[] args)
         {
+            Console.Write("Путь к *.txt файлу: ");
+            string disk = Console.ReadLine();
             Console.Write("Длина массива: ");
             uint N = ReadUint();
             uint[] mas = new uint[N];
@@ -45,7 +47,7 @@ namespace Task5
 
             File.WriteAllText("E:\\masseve.txt", a, Encoding.Default);
 
-            StreamReader reader = new StreamReader("E:\\masseve.txt", Encoding.Default);
+            StreamReader reader = new StreamReader(disk, Encoding.Default);
 
             string[] split = reader.ReadLine().Split(new Char[] { ' ', ',', '.', ':', '\t' });
 
