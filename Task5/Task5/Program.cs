@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 //9.	Дан массив размера N. Найти максимальный из его локальных минимумов
 
@@ -20,10 +22,11 @@ namespace Task5
             return nUint;
         }
 
-        static int Rand(Random rng)
-        {
-            return rng.Next(100);
-        }
+          static int Rand(Random rng)
+          {
+              return rng.Next(100);
+          }
+        
 
         static void Main(string[] args)
         {
@@ -31,14 +34,31 @@ namespace Task5
             uint N = ReadUint();
             uint[] mas = new uint[N];
             uint[] masM = new uint[N];
+            string[] masS = new string[N];
+            string a = "";
             Random rng = new Random();
 
             for (uint i = 0; i < N; i++)
             {
-                mas[i] = Convert.ToUInt32(Rand(rng));
+                a = a + Convert.ToString(Rand(rng)) + " ";
             }
 
+            File.WriteAllText("E:\\masseve.txt", a, Encoding.Default);
 
+            StreamReader reader = new StreamReader("E:\\masseve.txt", Encoding.Default);
+
+            string[] split = reader.ReadLine().Split(new Char[] { ' ', ',', '.', ':', '\t' });
+
+            uint j = 0;
+            foreach (string s in split)
+            {
+                if (s.Trim() != "")
+                {
+                    mas[j] = UInt32.Parse(s);
+                    j++;
+                }
+            }
+            
             uint count = 0;
             for (uint i = 0; i < N; i++)
             {
