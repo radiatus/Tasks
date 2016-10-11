@@ -12,43 +12,13 @@ namespace Task5
 {
     class Program
     {
-        static uint ReadUint()
-        {
-            uint nUint;
-            while (!UInt32.TryParse(Console.ReadLine(), out nUint))
-            {
-                Console.Write("Введите правильно: ");
-            }
-            return nUint;
-        }
+        private static uint[] mas = new uint[15];
 
-          static int Rand(Random rng)
-          {
-              return rng.Next(100);
-          }
-        
-
-        static void Main(string[] args)
+        static void ReadTxt(string way)
         {
-            Console.Write("Путь к *.txt файлу: ");
-            string disk = Console.ReadLine();
-            Console.Write("Длина массива: ");
-            uint N = ReadUint();
-            uint[] mas = new uint[N];
-            uint[] masMin = new uint[N];
-            string[] masStr = new string[N];
-            Random rng = new Random();
+            StreamReader reader = new StreamReader(way, Encoding.Default);
+            string[] split = reader.ReadLine().Split(new Char[] { ' ', ',' });
             
-            string a = "";
-            for (uint i = 0; i < N; i++)
-            {
-                a = a + Convert.ToString(Rand(rng)) + " ";
-            }
-
-            File.WriteAllText(disk, a, Encoding.Default);
-            StreamReader reader = new StreamReader(disk, Encoding.Default);
-            string[] split = reader.ReadLine().Split(new Char[] { ' ', ',', '.', ':', '\t' });
-
             uint j = 0;
             foreach (string s in split)
             {
@@ -58,14 +28,20 @@ namespace Task5
                     j++;
                 }
             }
+        }
+        static void Main(string[] args)
+        {
+            Console.Write("Путь к *.txt файлу: ");
+            string way = Console.ReadLine();
+            
+            ReadTxt(way);
             
             uint count = 0;
-            for (uint i = 0; i < N; i++)
+            uint[] masMin = new uint[15];
+            for (uint i = 1; i < 15; i++)
             {
                 if (i == mas.LongLength - 1)
                     break;
-                else if (i == 0)
-                    continue;
                
                 if ((mas[i] < mas[i + 1]) && (mas[i] < mas[i - 1]))
                 {
