@@ -15,27 +15,37 @@ namespace Task5
         private static uint N;
         private static uint[] mas = new uint[N];
 
-        static void ReadTXT(string way)
+        static void ReadTXT()
         {
-            StreamReader reader = new StreamReader(way, Encoding.Default);
-            N = Convert.ToUInt32(reader.ReadLine());
-            Array.Resize(ref mas, Convert.ToInt32(N));
-            string[] split = reader.ReadLine().Split(new Char[] { ' ', ',' });
-            
-            uint j = 0;
-            foreach (string s in split) // Цикл разбиения на числа
+            try
             {
-                if (s.Trim() != "")
-                {
-                    mas[j] = Convert.ToUInt32(s);
-                    j++;
-                }
+             Console.Write("Путь к *.txt файлу: ");
+
+             StreamReader reader = new StreamReader(Console.ReadLine(), Encoding.Default);
+             N = Convert.ToUInt32(reader.ReadLine());
+             Array.Resize(ref mas, Convert.ToInt32(N));
+             string[] split = reader.ReadLine().Split(new Char[] { ' ', ',' });
+
+             uint j = 0;
+             foreach (string s in split) // Цикл разбиения на числа
+             {
+              if (s.Trim() != "")
+               {
+                mas[j] = Convert.ToUInt32(s);
+                j++;
+               }
+             }
             }
+            catch(FileNotFoundException)
+            {
+                Console.WriteLine("Неверный путь к файлу.");
+                ReadTXT();
+            }
+            
         }
         static void Main(string[] args)
         {
-            Console.Write("Путь к *.txt файлу: ");
-            ReadTXT(Console.ReadLine());
+            ReadTXT();
             
             uint count = 0;
             uint[] masMin = new uint[N]; 
