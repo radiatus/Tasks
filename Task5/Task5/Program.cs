@@ -19,6 +19,7 @@ namespace Task5
         {
             StreamReader reader = new StreamReader(way, Encoding.Default);
             N = Convert.ToUInt32(reader.ReadLine());
+            Array.Resize(ref mas, Convert.ToInt32(N));
             string[] split = reader.ReadLine().Split(new Char[] { ' ', ',' });
             
             uint j = 0;
@@ -26,7 +27,7 @@ namespace Task5
             {
                 if (s.Trim() != "")
                 {
-                    mas[j] = UInt32.Parse(s);
+                    mas[j] = Convert.ToUInt32(s);
                     j++;
                 }
             }
@@ -35,7 +36,7 @@ namespace Task5
         {
             Console.Write("Путь к *.txt файлу: ");
             string way = Console.ReadLine();
-            
+
             ReadTxt(way);
             
             uint count = 0;
