@@ -14,8 +14,9 @@ namespace Task5
     {
         private static uint N;
         private static uint[] mas = new uint[N];
+        private static uint[] masLocMin = new uint[N];
 
-        static void ReadTXT()
+        static void ReadTXT() //чтение файла
         {
             try
             {
@@ -41,28 +42,32 @@ namespace Task5
                 Console.WriteLine("Неверный путь к файлу.");
                 ReadTXT();
             }
-            
         }
-        static void Main(string[] args)
+
+        static void LocalMinSort() //Отбор Лок. мин
         {
-            ReadTXT();
-            
             uint count = 0;
-            uint[] masMin = new uint[N]; 
+            uint[] masLocMin = new uint[N];
             for (uint i = 1; i < N; i++) // Цикл на Локальные мин.
             {
                 if (i == mas.LongLength - 1)
                     break;
-               
+
                 if ((mas[i] < mas[i + 1]) && (mas[i] < mas[i - 1]))
                 {
-                    masMin[count] = mas[i];
+                    masLocMin[count] = mas[i];
                     count++;
                 }
             }
+        }
 
-            Array.Sort(masMin);
-            Console.Write("Максимальный из локальных минимумов: {0}", masMin[masMin.Length - 1]);
+        static void Main(string[] args)
+        {
+            ReadTXT();
+            LocalMinSort();
+            
+            Array.Sort(masLocMin);
+            Console.Write("Максимальный из локальных минимумов: {0}", masLocMin[masLocMin.Length - 1]);
             Console.ReadKey();
         }
     }
