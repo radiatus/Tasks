@@ -37,9 +37,9 @@ namespace Task5
                }
              }
             }
-            catch(FileNotFoundException)
+            catch(Exception)
             {
-                Console.WriteLine("Неверный путь к файлу.");
+                Console.WriteLine("Неверный путь к файлу или битый файл.");
                 ReadTXT();
             }
         }
