@@ -15,7 +15,7 @@ namespace Task5
         private static uint N;
         private static uint[] mas = new uint[N];
 
-        static void ReadTxt(string way)
+        static void ReadTXT(string way)
         {
             StreamReader reader = new StreamReader(way, Encoding.Default);
             N = Convert.ToUInt32(reader.ReadLine());
@@ -23,7 +23,7 @@ namespace Task5
             string[] split = reader.ReadLine().Split(new Char[] { ' ', ',' });
             
             uint j = 0;
-            foreach (string s in split)
+            foreach (string s in split) // Цикл разбиения на числа
             {
                 if (s.Trim() != "")
                 {
@@ -35,13 +35,11 @@ namespace Task5
         static void Main(string[] args)
         {
             Console.Write("Путь к *.txt файлу: ");
-            string way = Console.ReadLine();
-
-            ReadTxt(way);
+            ReadTXT(Console.ReadLine());
             
             uint count = 0;
-            uint[] masMin = new uint[N];
-            for (uint i = 1; i < N; i++)
+            uint[] masMin = new uint[N]; 
+            for (uint i = 1; i < N; i++) // Цикл на Локальные мин.
             {
                 if (i == mas.LongLength - 1)
                     break;
