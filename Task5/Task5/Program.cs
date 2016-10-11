@@ -12,11 +12,13 @@ namespace Task5
 {
     class Program
     {
-        private static uint[] mas = new uint[15];
+        private static uint N;
+        private static uint[] mas = new uint[N];
 
         static void ReadTxt(string way)
         {
             StreamReader reader = new StreamReader(way, Encoding.Default);
+            N = Convert.ToUInt32(reader.ReadLine());
             string[] split = reader.ReadLine().Split(new Char[] { ' ', ',' });
             
             uint j = 0;
@@ -37,8 +39,8 @@ namespace Task5
             ReadTxt(way);
             
             uint count = 0;
-            uint[] masMin = new uint[15];
-            for (uint i = 1; i < 15; i++)
+            uint[] masMin = new uint[N];
+            for (uint i = 1; i < N; i++)
             {
                 if (i == mas.LongLength - 1)
                     break;
