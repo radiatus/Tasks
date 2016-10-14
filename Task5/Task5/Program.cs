@@ -12,63 +12,69 @@ namespace Task5
 {
     class Program
     {
-        private static uint N;
-        private static uint[] mas = new uint[N];
-        private static uint[] masLocMin = new uint[N];
-
-        static void ReadTXT() //чтение файла
+        static int[] GetMas(int n, int[] mas, StreamReader reader) //чтение файла
         {
-            try
-            {
-             Console.Write("Путь к *.txt файлу: ");
+                string[] split = reader.ReadLine().Split(new Char[] { ' ', ',' });
 
-             StreamReader reader = new StreamReader(Console.ReadLine(), Encoding.Default);
-             N = Convert.ToUInt32(reader.ReadLine());
-             Array.Resize(ref mas, Convert.ToInt32(N));
-             string[] split = reader.ReadLine().Split(new Char[] { ' ', ',' });
-
-             uint j = 0;
-             foreach (string s in split) // Цикл разбиения на числа
-             {
-              if (s.Trim() != "")
-               {
-                mas[j] = Convert.ToUInt32(s);
-                j++;
-               }
-             }
-            }
-            catch(Exception)
-            {
-                Console.WriteLine("Неверный путь к файлу или битый файл.");
-                ReadTXT();
-            }
+                uint j = 0;
+                foreach (string s in split) // Цикл разбиения на числа
+                {
+                    if (s.Trim() != "")
+                    {
+                        mas[j] = Convert.ToInt32(s);
+                        j++;
+                    }
+                }
+                return mas;
+            
         }
 
-        static void LocalMinSort() //Отбор Лок. мин
+        static int GetMaxLocalMinIndex(int[] mas, int n) //Отбор Лок. мин
         {
-            uint count = 0;
-            uint[] masLocMin = new uint[N];
-            for (uint i = 1; i < N; i++) // Цикл на Локальные мин.
+            int count = 0;
+            int MaxLocalMin = -1;
+            for (uint i = 1; i < n; i++) // Цикл на Локальные мин.
             {
                 if (i == mas.LongLength - 1)
                     break;
 
                 if ((mas[i] < mas[i + 1]) && (mas[i] < mas[i - 1]))
                 {
-                    masLocMin[count] = mas[i];
+                    if (mas[i] > MaxLocalMin)
+                    {
+                        MaxLocalMin = mas[i];
+                    }
                     count++;
                 }
             }
-        }
+            return MaxLocalMin;
+        } //-1
 
         static void Main(string[] args)
         {
-            ReadTXT();
-            LocalMinSort();
+            try
+            {
+
+                Console.Write("Путь к *.txt файлу: ");
+
+                StreamReader reader = new StreamReader(Console.ReadLine(), Encoding.Default);
+                int N = Convert.ToInt32(reader.ReadLine());
+                int[] mas = new int[N];
+                int MaxLocalMin = 0;
+
+                mas = GetMas(N, mas, reader);
+
+                MaxLocalMin = GetMaxLocalMinIndex(mas, N);
+
+                Console.Write("Максимальный из локальных минимумов: {0}", MaxLocalMin);
+                Console.ReadKey();
+            }
+            catch (Exception)
+            {
+                Console.Write("Не верный путь или битый файл");
+                Console.ReadKey();
+            }
             
-            Array.Sort(masLocMin);
-            Console.Write("Максимальный из локальных минимумов: {0}", masLocMin[masLocMin.Length - 1]);
-            Console.ReadKey();
         }
     }
 }
