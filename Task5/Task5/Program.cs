@@ -38,12 +38,9 @@ namespace Task5
                 if (i == mas.LongLength - 1)
                     break;
 
-                if ((mas[i] < mas[i + 1]) && (mas[i] < mas[i - 1]))
+                if ((mas[i] < mas[i + 1]) && (mas[i] < mas[i - 1]) && (mas[i] > MaxLocalMin))
                 {
-                    if (mas[i] > MaxLocalMin)
-                    {
-                        MaxLocalMin = mas[i];
-                    }
+                    MaxLocalMin = mas[i];
                     count++;
                 }
             }
