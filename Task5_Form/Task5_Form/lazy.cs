@@ -5,13 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-//9.	Дан массив размера N. Найти максимальный из его локальных минимумов
-
-namespace task5
+namespace Task5_Form
 {
-    class Program
+    class lazy
     {
+
+
         static int[] GetMas(string WayToFale) //чтение файла
         {
             StreamReader reader = new StreamReader(WayToFale, Encoding.Default);
@@ -68,5 +67,6 @@ namespace task5
             }
 
         }
+
     }
 }
