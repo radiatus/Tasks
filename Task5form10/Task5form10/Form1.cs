@@ -5,10 +5,9 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Task_5_form
+namespace Task5form10
 {
     public partial class Form1 : Form
     {
@@ -16,7 +15,7 @@ namespace Task_5_form
         {
             InitializeComponent();
 
-            var column1 = new DataGridViewColumn();
+            DataGridViewColumn column1 = new DataGridViewColumn();
             column1.HeaderText = "Значения"; //текст в шапке
             column1.Width = 100; //ширина колонки
             column1.ReadOnly = false; //значение в этой колонке нельзя править
@@ -28,12 +27,10 @@ namespace Task_5_form
 
         void button1_Click(object sender, EventArgs e)
         {
-             int[] mas = Lazy.GetMas(dataGridView1);
-             int MaxLocalMinIndex = Lazy.GetMaxLocalMinIndex(mas);
+            int[] mas = Lazy.GetMas(dataGridView1);
+            int MaxLocalMinIndex = Lazy.GetMaxLocalMinIndex(mas);
 
             textBox1.Text = Convert.ToString(MaxLocalMinIndex);
         }
-
-
     }
 }

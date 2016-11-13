@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace Task_5_form
+namespace Task5form10
 {
-   class Lazy
+    class Lazy
     {
-        
-        static public int[] GetMas() //чтение файла
+
+        static public int[] GetMas(DataGridView data) //чтение файла
         {
-            int N = Form1.dataGridView1.RowCount - 1;
+            int N = data.RowCount - 1;
             int[] mas = new int[N];
 
             for (int j = 0; j < N; j++)
             {
-                mas[j] = Convert.ToInt32(Form1.dataGridView1[0, j].Value);
+                mas[j] = Convert.ToInt32(data[0, j].Value);
             }
 
             return mas;
@@ -34,7 +34,7 @@ namespace Task_5_form
                     Console.WriteLine(mas[i]);
 
                     maxLocalMin = mas[i];
-                    maxLocalMinIndex = i;
+                    maxLocalMinIndex = i++;
                 }
             }
             return maxLocalMinIndex;
@@ -43,4 +43,3 @@ namespace Task_5_form
     }
 }
 
-      

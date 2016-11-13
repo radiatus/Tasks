@@ -22,19 +22,25 @@ namespace tasksix
 
         static bool M(int[,] matrix, int i, int j)
         {
-            for (int count = 0; count < matrix.Length; count++)
-            {
-                for (int count2 = 0; count2 < matrix.Length; count2++)
-                {
-                    if ()
-                    {
+            int countT = 0;
+            int leng = Convert.ToInt32(Math.Sqrt(matrix.Length)) - 1;
 
-                        return true;
-                    }
-                    return false;
-                   
-                }
-            }
+             if (i != 0 && matrix[i - 1, j] == matrix[i, j])
+                countT++;
+             if(i != 0 && j != 0 && matrix[i - 1, j - 1] == matrix[i, j])
+                countT++;
+             if (j != 0 && matrix[i, j - 1] == matrix[i, j])
+                countT++;
+             if (i != leng && matrix[i + 1, j] == matrix[i, j])
+                countT++;
+             if (j != leng && matrix[i, j + 1] == matrix[i, j])
+                countT++;
+             if (i != leng && j != leng && matrix[i + 1, j + 1] == matrix[i, j])
+                countT++;
+             if (countT > 2)
+                return true;
+             else
+                return false;
         }
       
     static void Main(string[] args)
@@ -45,7 +51,8 @@ namespace tasksix
             int i = ReadInt();
             Console.Write("j: ");
             int j = ReadInt();
-            
+            Console.WriteLine("");
+
             int[,] matrix = new int[matrixSize, matrixSize];
             Random rnd = new Random();
             for (int count = 0; count < matrixSize;count++)
@@ -53,9 +60,11 @@ namespace tasksix
                 for (int count2 = 0; count2 < matrixSize; count2++)
                 {
                     matrix[count, count2] = rnd.Next(0,100);
+                    Console.Write(matrix[count, count2] + " ");
                 }
+                Console.WriteLine("");
             }
-
+            Console.WriteLine("");
 
 
             int[,] matrix2 = new int[matrixSize, matrixSize];
@@ -63,15 +72,18 @@ namespace tasksix
             {
                 for (int count2 = 0; count2 < matrixSize; count2++)
                 {
-                    if (count == i && count2 == j && M(matrix, i, j))
+                    if (count == i && count2 == j && M(matrix,i,j) == true)
                     {
                         matrix2[count, count2] = 1;
+                        Console.Write(matrix2[count, count2] + " ");
                     }
                     else
                     {
                       matrix2[count, count2] = 0;
+                      Console.Write(matrix2[count, count2] + " ");
                     }
                 }
+                Console.WriteLine("");
             }
 
             Console.ReadKey();
