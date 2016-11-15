@@ -19,11 +19,11 @@ namespace Task_6_form_1
                 countT++;
             if (row != 0 && Convert.ToInt32(data[column, row - 1].Value) == Convert.ToInt32(data[column, row].Value))
                 countT++;
-            if (column != Convert.ToInt32(data.ColumnCount - 1) && Convert.ToInt32(data[column + 1, row].Value) == Convert.ToInt32(data[column, row].Value))
+            if (column != data.ColumnCount - 1 && Convert.ToInt32(data[column + 1, row].Value) == Convert.ToInt32(data[column, row].Value))
                 countT++;
-            if (row != Convert.ToInt32(data.RowCount - 1) && Convert.ToInt32(data[column, row + 1].Value) == Convert.ToInt32(data[column, row].Value))
+            if (row != data.RowCount - 1 && Convert.ToInt32(data[column, row + 1].Value) == Convert.ToInt32(data[column, row].Value))
                 countT++;
-            if (column != Convert.ToInt32(data.RowCount - 1) && row != Convert.ToInt32(data.ColumnCount - 1) && Convert.ToInt32(data[column + 1, row + 1].Value) == Convert.ToInt32(data[column, row].Value))
+            if (column != data.RowCount - 1 && row != data.ColumnCount - 1 && Convert.ToInt32(data[column + 1, row + 1].Value) == Convert.ToInt32(data[column, row].Value))
                 countT++;
 
             if (countT > 2)
