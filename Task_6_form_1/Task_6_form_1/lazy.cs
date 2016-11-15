@@ -9,21 +9,21 @@ namespace Task_6_form_1
 {
     class lazy
     {
-        public static bool M(DataGridView data, int i, int j)
+        public static bool M(DataGridView data, int row, int column)
         {
             int countT = 0;
             
-            if (i != 0 && Convert.ToInt32(data[i - 1, j].Value) == Convert.ToInt32(data[i, j].Value))
+            if (column != 0 && Convert.ToInt32(data[column - 1, row].Value) == Convert.ToInt32(data[column, row].Value))
                 countT++;
-            if (i != 0 && j != 0 && Convert.ToInt32(data[i - 1, j - 1].Value) == Convert.ToInt32(data[i, j].Value))
+            if (column != 0 && row != 0 && Convert.ToInt32(data[column - 1, row - 1].Value) == Convert.ToInt32(data[column, row].Value))
                 countT++;
-            if (j != 0 && Convert.ToInt32(data[i, j - 1].Value) == Convert.ToInt32(data[i, j].Value))
+            if (row != 0 && Convert.ToInt32(data[column, row - 1].Value) == Convert.ToInt32(data[column, row].Value))
                 countT++;
-            if (i != Convert.ToInt32(data.RowCount-1) && Convert.ToInt32(data[i + 1, j].Value) == Convert.ToInt32(data[i, j].Value))
+            if (column != Convert.ToInt32(data.ColumnCount - 1) && Convert.ToInt32(data[column + 1, row].Value) == Convert.ToInt32(data[column, row].Value))
                 countT++;
-            if (j != Convert.ToInt32(data.ColumnCount - 1) && Convert.ToInt32(data[i, j + 1].Value) == Convert.ToInt32(data[i, j].Value))
+            if (row != Convert.ToInt32(data.RowCount - 1) && Convert.ToInt32(data[column, row + 1].Value) == Convert.ToInt32(data[column, row].Value))
                 countT++;
-            if (i != Convert.ToInt32(data.RowCount - 1) && j != Convert.ToInt32(data.ColumnCount - 1) && Convert.ToInt32(data[i + 1, j + 1].Value) == Convert.ToInt32(data[i, j].Value))
+            if (column != Convert.ToInt32(data.RowCount - 1) && row != Convert.ToInt32(data.ColumnCount - 1) && Convert.ToInt32(data[column + 1, row + 1].Value) == Convert.ToInt32(data[column, row].Value))
                 countT++;
 
             if (countT > 2)
