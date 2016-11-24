@@ -70,15 +70,21 @@ namespace Task6Forms
         {
             SecondMatrix.RowCount = FirstMatrix.RowCount;
             SecondMatrix.ColumnCount = FirstMatrix.ColumnCount;
-
-            for (int countRow = 0; countRow < FirstMatrix.RowCount; countRow++)
-                for (int countCol = 0; countCol < FirstMatrix.ColumnCount; countCol++)
-                {
-                    if (Functions.Neighbor(FirstMatrix, countRow, countCol))
-                        SecondMatrix[countCol, countRow].Value = 1;
-                    else
-                        SecondMatrix[countCol, countRow].Value = 0;
-                }
+            try
+            {
+                for (int countRow = 0; countRow < FirstMatrix.RowCount; countRow++)
+                    for (int countCol = 0; countCol < FirstMatrix.ColumnCount; countCol++)
+                    {
+                        if (Functions.Neighbor(FirstMatrix, countRow, countCol))
+                            SecondMatrix[countCol, countRow].Value = 1;
+                        else
+                            SecondMatrix[countCol, countRow].Value = 0;
+                    }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ошибка");
+            }
         }
     }
 }

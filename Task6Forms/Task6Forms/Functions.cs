@@ -22,14 +22,20 @@ namespace Task6Forms
             int columnCount = colums.Length;
 
             int[,] matrix = new int[rowCount, columnCount];
-
-            for (int countRow = 0; countRow < rowCount; countRow++)
+            try
             {
-                int[] row = rows[countRow].Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select(Int32.Parse).ToArray();
-                for (int countColumn = 0; countColumn < columnCount; countColumn++)
+                for (int countRow = 0; countRow < rowCount; countRow++)
                 {
-                    matrix[countRow, countColumn] = row[countColumn];
+                    int[] row = rows[countRow].Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select(Int32.Parse).ToArray();
+                    for (int countColumn = 0; countColumn < columnCount; countColumn++)
+                    {
+                        matrix[countRow, countColumn] = row[countColumn];
+                    }
                 }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Битый файл");
             }
             return matrix;
         }
