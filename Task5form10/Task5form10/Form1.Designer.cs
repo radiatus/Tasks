@@ -30,8 +30,9 @@
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.massive = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.massive)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -51,14 +52,23 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dataGridView1
+            // massive
             // 
-            this.dataGridView1.AllowUserToOrderColumns = true;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(130, 150);
-            this.dataGridView1.TabIndex = 3;
+            this.massive.AllowUserToOrderColumns = true;
+            this.massive.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.massive.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1});
+            this.massive.Location = new System.Drawing.Point(21, 12);
+            this.massive.Name = "massive";
+            this.massive.Size = new System.Drawing.Size(130, 150);
+            this.massive.TabIndex = 3;
+            this.massive.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.massive.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Значение";
+            this.Column1.Name = "Column1";
             // 
             // Form1
             // 
@@ -67,10 +77,10 @@
             this.ClientSize = new System.Drawing.Size(283, 169);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.massive);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.massive)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -80,8 +90,8 @@
 
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-
+        private System.Windows.Forms.DataGridView massive;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }
 

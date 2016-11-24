@@ -9,28 +9,19 @@ namespace Task_6_form_1
 {
     class lazy
     {
-        public static bool M(DataGridView data, int row, int column) // Дописать для [i-1,j+1]
+        public static bool Neighbor(DataGridView data, int row, int column)
         {
             int countT = 0;
-            
-            if (column != 0 && row != 0 && Convert.ToInt32(data[column - 1, row - 1].Value) == Convert.ToInt32(data[column, row].Value))
-                countT++;
-            if (column != 0 && Convert.ToInt32(data[column - 1, row].Value) == Convert.ToInt32(data[column, row].Value))
-                countT++;
-            if (column != 0 && row != data.RowCount - 1 && row != 0 && Convert.ToInt32(data[column - 1, row + 1].Value) == Convert.ToInt32(data[column, row].Value))
-                countT++;
-            if (row != 0 && Convert.ToInt32(data[column, row - 1].Value) == Convert.ToInt32(data[column, row].Value))
-                countT++;
-            if (row != data.RowCount - 1 && Convert.ToInt32(data[column, row + 1].Value) == Convert.ToInt32(data[column, row].Value))
-                countT++;
-            if (column != data.ColumnCount - 1 && row != 0 && Convert.ToInt32(data[column + 1, row - 1].Value) == Convert.ToInt32(data[column, row].Value))
-                countT++;
-            if (column != data.ColumnCount - 1 && Convert.ToInt32(data[column + 1, row].Value) == Convert.ToInt32(data[column, row].Value))
-                countT++;
-            if (column != data.RowCount - 1 && row != data.ColumnCount - 1 && Convert.ToInt32(data[column + 1, row + 1].Value) == Convert.ToInt32(data[column, row].Value))
-                countT++;
+            int rowCount = 5;
+            int columnCount = 5;
 
-            if (countT > 2)
+            for (int ii = row - 1; ii <= row + 1; ii++)
+                if (ii >= 0 && ii < rowCount)
+                    for (int jj = column - 1; jj <= column + 1; jj++)
+                        if (jj >= 0 && jj < columnCount && Convert.ToInt32(data[ii, jj].Value) == Convert.ToInt32(data[row, column].Value))
+                            countT++;
+
+            if (countT > 3)
                 return true;
             else
                 return false;

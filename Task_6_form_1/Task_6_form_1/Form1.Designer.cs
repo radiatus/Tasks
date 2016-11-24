@@ -28,30 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.matrixOne = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnMinus = new System.Windows.Forms.Button();
             this.ColumnPlus = new System.Windows.Forms.Button();
             this.RowMinus = new System.Windows.Forms.Button();
             this.RowPlus = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.matrixTwo = new System.Windows.Forms.DataGridView();
             this.RandToMarix = new System.Windows.Forms.Button();
             this.TwoMatrix = new System.Windows.Forms.Button();
-            this.GetRow = new System.Windows.Forms.TextBox();
-            this.GetColumn = new System.Windows.Forms.TextBox();
-            this.Row = new System.Windows.Forms.Label();
-            this.Column = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matrixOne)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matrixTwo)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // matrixOne
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(44, 49);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 30;
-            this.dataGridView1.Size = new System.Drawing.Size(728, 298);
-            this.dataGridView1.TabIndex = 0;
+            this.matrixOne.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.matrixOne.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1});
+            this.matrixOne.EnableHeadersVisualStyles = false;
+            this.matrixOne.Location = new System.Drawing.Point(44, 49);
+            this.matrixOne.Name = "matrixOne";
+            this.matrixOne.RowHeadersWidth = 50;
+            this.matrixOne.Size = new System.Drawing.Size(728, 298);
+            this.matrixOne.TabIndex = 0;
+            this.matrixOne.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.dataGridView1_ColumnAdded);
+            this.matrixOne.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "";
+            this.Column1.Name = "Column1";
             // 
             // ColumnMinus
             // 
@@ -93,13 +100,16 @@
             this.RowPlus.UseVisualStyleBackColor = true;
             this.RowPlus.Click += new System.EventHandler(this.RowPlus_Click);
             // 
-            // dataGridView2
+            // matrixTwo
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(44, 383);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(728, 262);
-            this.dataGridView2.TabIndex = 5;
+            this.matrixTwo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.matrixTwo.Location = new System.Drawing.Point(44, 383);
+            this.matrixTwo.Name = "matrixTwo";
+            this.matrixTwo.RowHeadersWidth = 50;
+            this.matrixTwo.Size = new System.Drawing.Size(728, 262);
+            this.matrixTwo.TabIndex = 5;
+            this.matrixTwo.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.dataGridView2_ColumnAdded);
+            this.matrixTwo.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.dataGridView2_RowPrePaint);
             // 
             // RandToMarix
             // 
@@ -113,7 +123,7 @@
             // 
             // TwoMatrix
             // 
-            this.TwoMatrix.Location = new System.Drawing.Point(222, 351);
+            this.TwoMatrix.Location = new System.Drawing.Point(48, 353);
             this.TwoMatrix.Name = "TwoMatrix";
             this.TwoMatrix.Size = new System.Drawing.Size(108, 23);
             this.TwoMatrix.TabIndex = 7;
@@ -121,78 +131,38 @@
             this.TwoMatrix.UseVisualStyleBackColor = true;
             this.TwoMatrix.Click += new System.EventHandler(this.TwoMatrix_Click);
             // 
-            // GetRow
-            // 
-            this.GetRow.Location = new System.Drawing.Point(81, 353);
-            this.GetRow.Name = "GetRow";
-            this.GetRow.Size = new System.Drawing.Size(31, 20);
-            this.GetRow.TabIndex = 8;
-            // 
-            // GetColumn
-            // 
-            this.GetColumn.Location = new System.Drawing.Point(166, 353);
-            this.GetColumn.Name = "GetColumn";
-            this.GetColumn.Size = new System.Drawing.Size(30, 20);
-            this.GetColumn.TabIndex = 9;
-            // 
-            // Row
-            // 
-            this.Row.AutoSize = true;
-            this.Row.Location = new System.Drawing.Point(46, 357);
-            this.Row.Name = "Row";
-            this.Row.Size = new System.Drawing.Size(29, 13);
-            this.Row.TabIndex = 10;
-            this.Row.Text = "Row";
-            // 
-            // Column
-            // 
-            this.Column.AutoSize = true;
-            this.Column.Location = new System.Drawing.Point(118, 356);
-            this.Column.Name = "Column";
-            this.Column.Size = new System.Drawing.Size(42, 13);
-            this.Column.TabIndex = 11;
-            this.Column.Text = "Column";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 670);
-            this.Controls.Add(this.Column);
-            this.Controls.Add(this.Row);
-            this.Controls.Add(this.GetColumn);
-            this.Controls.Add(this.GetRow);
             this.Controls.Add(this.TwoMatrix);
             this.Controls.Add(this.RandToMarix);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.matrixTwo);
             this.Controls.Add(this.RowPlus);
             this.Controls.Add(this.RowMinus);
             this.Controls.Add(this.ColumnPlus);
             this.Controls.Add(this.ColumnMinus);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.matrixOne);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matrixOne)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matrixTwo)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView matrixOne;
         private System.Windows.Forms.Button ColumnMinus;
         private System.Windows.Forms.Button ColumnPlus;
         private System.Windows.Forms.Button RowMinus;
         private System.Windows.Forms.Button RowPlus;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView matrixTwo;
         private System.Windows.Forms.Button RandToMarix;
         private System.Windows.Forms.Button TwoMatrix;
-        private System.Windows.Forms.TextBox GetRow;
-        private System.Windows.Forms.TextBox GetColumn;
-        private System.Windows.Forms.Label Row;
-        private System.Windows.Forms.Label Column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }
 

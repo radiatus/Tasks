@@ -18,7 +18,6 @@ namespace Task5form10
             {
                 mas[j] = Convert.ToInt32(data[0, j].Value);
             }
-
             return mas;
         }
 
@@ -31,8 +30,6 @@ namespace Task5form10
                 if (mas[i] < mas[i + 1] && mas[i] < mas[i - 1] &&
                     (maxLocalMinIndex == -1 || mas[i] > maxLocalMin))
                 {
-                    Console.WriteLine(mas[i]);
-
                     maxLocalMin = mas[i];
                     maxLocalMinIndex = i++;
                 }

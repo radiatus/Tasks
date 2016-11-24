@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace tasksix
+namespace ConsoleApplication12
 {
     class Program
     {
@@ -20,51 +20,34 @@ namespace tasksix
         }
 
 
-        static bool Equlse(int[,] matrix, int i, int j)
+        static bool Neighbor(int[,] matrix, int i, int j)
         {
             int countT = 0;
-            int leng = Convert.ToInt32(Math.Sqrt(matrix.Length)) - 1;
+            int rowCount = matrix.GetLength(0);
+            int columnCount = matrix.GetLength(1);
 
-             if (i != 0 && matrix[i - 1, j] == matrix[i, j])
-                countT++;
-             if(i != 0 && j != 0 && matrix[i - 1, j - 1] == matrix[i, j])
-                countT++;
-             if (j != 0 && matrix[i, j - 1] == matrix[i, j])
-                countT++;
-             if (i != leng && matrix[i + 1, j] == matrix[i, j])
-                countT++;
-             if (j != leng && matrix[i, j + 1] == matrix[i, j])
-                countT++;
-             if (i != leng && j != leng && matrix[i + 1, j + 1] == matrix[i, j])
-                countT++;
-             if (countT > 2)
+            for (int ii = i - 1; ii <= i + 1; ii++)
+                if (ii >= 0 && ii < rowCount)
+                    for (int jj = j - 1; jj <= j + 1; jj++)
+                        if (jj >= 0 && jj < columnCount && matrix[ii, jj] == matrix[i, j])
+                                countT++;
+            if (countT > 3)
                 return true;
              else
                 return false;
         }
-      
-        static void RandInMatrix(int[,] matrix)
-        {
-            Random rnd = new Random();
-            for (int count = 0; count < Math.Sqrt(matrix.Length); count++)
-            {
-                for (int count2 = 0; count2 < Math.Sqrt(matrix.Length); count2++)
-                {
-                    matrix[count, count2] = rnd.Next(0, 5);
-                    Console.Write(matrix[count, count2] + " ");
-                }
-                Console.WriteLine("");
-            }
-            Console.WriteLine("");
-        }
 
-        static void M1toM2(int[,] matrix, int[,] matrix2, int i, int j)
+
+        static void FillingMatrixTwo(int[,] matrix, int[,] matrix2)
         {
-            for (int count = 0; count < Math.Sqrt(matrix.Length); count++)
+			int rowCount = matrix.GetLength(0);
+            int columnCount = matrix.GetLength(1);
+
+            for (int count = 0; count < rowCount; count++)
             {
-                for (int count2 = 0; count2 < Math.Sqrt(matrix.Length); count2++)
+                for (int count2 = 0; count2 < columnCount; count2++)
                 {
-                    if (count == i && count2 == j && Equlse(matrix, i, j) == true)
+                    if (Neighbor(matrix, count, count2) == true)
                     {
                         matrix2[count, count2] = 1;
                         Console.Write(matrix2[count, count2] + " ");
@@ -78,23 +61,34 @@ namespace tasksix
                 Console.WriteLine("");
             }
         }
+        
 
-    static void Main(string[] args)
+        static int[,] GetMas(string wayToFile)
+          {
+            Console.WriteLine("Введите количество строк матрицы: ");
+            int size1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Введите количество столбов матрицы: ");
+            int size2 = Convert.ToInt32(Console.ReadLine());
+            string[] lines = File.ReadAllLines(wayToFile).Take(10).ToArray();
+
+            int[,] arr = new int[size1, size2];
+            for (int i = 0; i < size1; i++)
+            {
+                int[] row = lines[i].Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Select(Int32.Parse).ToArray();
+                for (int j = 0; j < size2; j++)
+                {
+                    arr[i, j] = row[j];
+                }
+            }
+            return arr;
+        }
+
+        static void Main(string[] args)
         {
-            Console.Write("Размер: ");
-            int matrixSize = ReadInt();
-            Console.Write("i: ");
-            int i = ReadInt();
-            Console.Write("j: ");
-            int j = ReadInt();
-            Console.WriteLine("");
+            int[,] matrix = GetMas(Console.ReadLine());
+            int[,] matrix2 = new int[matrix.GetLength(0), matrix.GetLength(1)];
+            FillingMatrixTwo(matrix, matrix2);
 
-            int[,] matrix = new int[matrixSize, matrixSize];
-            RandInMatrix(matrix);
-
-            int[,] matrix2 = new int[matrixSize, matrixSize];
-            M1toM2(matrix, matrix2, i, j);
-            
             Console.ReadKey();
         }
     }
