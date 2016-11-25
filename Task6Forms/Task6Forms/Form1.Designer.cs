@@ -44,6 +44,9 @@
             // 
             // FirstMatrix
             // 
+            this.FirstMatrix.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.FirstMatrix.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.FirstMatrix.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.FirstMatrix.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.FirstMatrix.Location = new System.Drawing.Point(48, 48);
             this.FirstMatrix.Name = "FirstMatrix";
@@ -122,6 +125,9 @@
             // 
             // SecondMatrix
             // 
+            this.SecondMatrix.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.SecondMatrix.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.SecondMatrix.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.SecondMatrix.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.SecondMatrix.Location = new System.Drawing.Point(48, 255);
             this.SecondMatrix.Name = "SecondMatrix";

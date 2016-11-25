@@ -75,10 +75,7 @@ namespace Task6Forms
                 for (int countRow = 0; countRow < FirstMatrix.RowCount; countRow++)
                     for (int countCol = 0; countCol < FirstMatrix.ColumnCount; countCol++)
                     {
-                        if (Functions.Neighbor(FirstMatrix, countRow, countCol))
-                            SecondMatrix[countCol, countRow].Value = 1;
-                        else
-                            SecondMatrix[countCol, countRow].Value = 0;
+                        SecondMatrix[countCol, countRow].Value = Functions.Neighbor(FirstMatrix, countRow, countCol) ? 1 : 0;
                     }
             }
             catch (Exception)
