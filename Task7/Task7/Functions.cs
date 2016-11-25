@@ -32,10 +32,10 @@ namespace Task7
                     NumberText += "Два миллиона ";
                     break;
                 case 3:
-                    NumberText += "Три миллион ";
+                    NumberText += "Три миллиона ";
                     break;
                 case 4:
-                    NumberText += "Четыре миллион ";
+                    NumberText += "Четыре миллиона ";
                     break;
                 case 5:
                     NumberText += "Пять миллионов ";
@@ -60,7 +60,7 @@ namespace Task7
                     NumberText += "сто ";
                     break;
                 case 2:
-                    NumberText += "двесте ";
+                    NumberText += "двести ";
                     break;
                 case 3:
                     NumberText += "триста ";
@@ -78,7 +78,7 @@ namespace Task7
                     NumberText += "семьсот ";
                     break;
                 case 8:
-                    NumberText += "восемьсот";
+                    NumberText += "восемьсот ";
                     break;
                 case 9:
                     NumberText += "девятьсот ";
@@ -91,10 +91,10 @@ namespace Task7
                     NumberText += "десять ";
                     break;
                 case 2:
-                    NumberText += "дватцать ";
+                    NumberText += "двадцать ";
                     break;
                 case 3:
-                    NumberText += "тритцать ";
+                    NumberText += "тридцать ";
                     break;
                 case 4:
                     NumberText += "сорок ";
@@ -148,7 +148,7 @@ namespace Task7
             }
 
             if (thousands != 0 || tensThousands != 0 || hundredsThousands != 0)
-                NumberText += "тысяч ";
+                NumberText += "тысячи ";
             
             switch (hundreds)
             {
@@ -187,10 +187,10 @@ namespace Task7
                     NumberText += "десять ";
                     break;
                 case 2:
-                    NumberText += "дватцать ";
+                    NumberText += "двадцать ";
                     break;
                 case 3:
-                    NumberText += "тритцать ";
+                    NumberText += "дридцать ";
                     break;
                 case 4:
                     NumberText += "сорок ";
