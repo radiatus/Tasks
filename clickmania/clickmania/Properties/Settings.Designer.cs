@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Task6Forms.Properties {
+namespace clickmania.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

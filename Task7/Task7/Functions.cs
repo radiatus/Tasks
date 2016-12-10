@@ -9,13 +9,29 @@ namespace Task7
 {
     class Functions
     {
+         private static readonly string[][] units = new string[][] {
+            new string[] {"", "один ", "два ", "три ", "четыре ", "пять ", "шесть ", "семь ", "восемь ", "девять " },
+            new string[] {"", "одна ","две ", "три ", "четыре ", "пять ", "шесть ", "семь ", "восемь ", "девять "},
+            new string[] {"", "десять ","двадцать ","тридцать ","сорок ","пятьдесят ", "шестьдесят ", "семьдесят ","восемьдесят ","дявяносто "},
+            new string[] {"", "сто ", "двести ", "триста ", "четыреста ", "пятьсот ", "шестьсот ", "семьсот ", "восемьсот ", "девятсот "},
+            new string[] {"десять ","одинадцать ", "двенадцать ", "тринадцать ","четырнадцать ", "пятьнадцать ", "шестнадцать ", "семнадцать ", "восемнадцать ", "девятнадцать "}
+        };
+
         public static string ConvertNumberToText(string NumberString)
         {
             int Number = Convert.ToInt32(NumberString);
 
             string NumberText = "";
 
-            int[] numbers = getNumbers(Number);
+            int[] numbers = new int[6];
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                for (int l = 0, j = 1; l < 6; l++, j *= 10)
+                {
+                    if (i == l)
+                        numbers[i] = Number % (j * 10) / j;
+                }
+            }
                         
             if (numbers[4] <= 1 && numbers[4] !=0 && numbers[3] != 0)
             {
@@ -44,71 +60,41 @@ namespace Task7
                 NumberText += get(numbers[1], 2);
                 NumberText += get(numbers[0], 0);
             }
-            
             return NumberText;
         }
 
-        public static string get(int number, int discarge)
+        private static string get(int number, int discarge)
         {
-            string[][] units = new string[][]
-                {
-                 new string[] {"", "один ", "два ", "три ", "четыре ", "пять ", "шесть ", "семь ", "восемь ", "девять " },
-                 new string[] {"", "одна ","две ", "три ", "четыре ", "пять ", "шесть ", "семь ", "восемь ", "девять "},
-                 new string[] {"","десять ","двадцать ","тридцать ","сорок ","пятьдесят ", "шестьдесят ", "семьдесят ","восемьдесят ","дявяносто "},
-                 new string[] {"","сто ", "двести ", "триста ", "четыреста ", "пятьсот ", "шестьсот ", "семьсот ", "восемьсот ", "девятсот "},
-                 new string[] { "десять ","одинадцать ", "двенадцать ", "тринадцать ", "пятьнадцать ", "шестнадцать ", "семнадцать ", "восемнадцать ", "девятнадцать "}
-                };
-            
             return units[discarge][number];
         }
 
-        public static string thousands(int i)
+        private static string thousands(int i)
         {
             switch (i)
             {
                 case 1:
                     return "тысяча ";
                 case 3:
-                    return "тысячи ";
                 case 4:
                     return "тысячи ";
                 default:
                     return "тысяч ";
             }
         }
-        public static int[] getNumbers(int number)
+
+        private static int[] getNumbers(int number)
         {
             int[] numbers = new int[6];
 
             for (int i = 0; i < numbers.Length; i++)
             {
-                numbers[i] = returnDischarge(number, i);
+                for (int l = 0, j = 1; l < 6; l++, j *= 10)
+                {
+                    if (i == l)
+                        numbers[i] = number % (j * 10) / j;
+                }
             }
-
             return numbers;
         }
-
-        public static int returnDischarge(int number, int discharge)
-        {
-            switch (discharge)
-            {
-                case 0:
-                    return number % 10;
-                case 1:
-                    return number % 100 / 10;
-                case 2:
-                    return number % 1000 / 100;
-                case 3:
-                    return number % 10000 / 1000;
-                case 4:
-                    return number % 100000 / 10000;
-                case 5:
-                    return number % 1000000 / 100000;
-                default:
-                    MessageBox.Show("Разряда не существует");
-                    return 0;
-            }
-        }
-
     }
 }
