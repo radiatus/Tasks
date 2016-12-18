@@ -22,21 +22,21 @@ namespace clickmania
             Deleted = del;
         }
 
-        public void drawCub(Graphics g, Brush br,int x,int y)//а тут мы его рисуем, все логично, кисть генерируется на 
+        public void drawCub(Graphics g, Brush br,int x,int y, Pen a)//а тут мы его рисуем, все логично, кисть генерируется на 
                                                              //форме, тут мы просто ее передаем в качестве параметра
         {
             if (Deleted == false)
             {
                 g.FillEllipse(br, x, y, 25, 25);
-                g.DrawEllipse(Pens.Black, x, y, 25, 25);
+                g.DrawEllipse(a, x, y, 25, 25);
             }
-            else
-            {
-                g.FillEllipse(Brushes.Pink, x, y, 25, 25);
-                g.DrawEllipse(Pens.Black, x, y, 25, 25);
-            }
+            //else
+            //{
+            //    g.FillEllipse(Brushes.Pink, x, y, 25, 25);
+            //    g.DrawEllipse(Pens.Black, x, y, 25, 25);
+            //}
         }
-    
+
 
     }
 }

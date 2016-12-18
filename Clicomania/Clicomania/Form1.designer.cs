@@ -35,11 +35,11 @@
             this.ColumnCountsNumeric = new System.Windows.Forms.NumericUpDown();
             this.ColorsLabel = new System.Windows.Forms.Label();
             this.ColorsCounts = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelMenu = new System.Windows.Forms.Panel();
+            this.panelGame = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.RowCountsNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ColumnCountsNumeric)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.panelMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // StartGame
@@ -120,30 +120,31 @@
             this.ColorsCounts.Size = new System.Drawing.Size(75, 21);
             this.ColorsCounts.TabIndex = 7;
             // 
-            // panel1
+            // panelMenu
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.panel1.Controls.Add(this.StartGame);
-            this.panel1.Controls.Add(this.ColorsCounts);
-            this.panel1.Controls.Add(this.RowCountsLabel);
-            this.panel1.Controls.Add(this.ColorsLabel);
-            this.panel1.Controls.Add(this.RowCountsNumeric);
-            this.panel1.Controls.Add(this.ColumnCountsNumeric);
-            this.panel1.Controls.Add(this.ColumnCountsLabel);
-            this.panel1.Location = new System.Drawing.Point(383, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(100, 168);
-            this.panel1.TabIndex = 8;
+            this.panelMenu.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.panelMenu.Controls.Add(this.StartGame);
+            this.panelMenu.Controls.Add(this.ColorsCounts);
+            this.panelMenu.Controls.Add(this.RowCountsLabel);
+            this.panelMenu.Controls.Add(this.ColorsLabel);
+            this.panelMenu.Controls.Add(this.RowCountsNumeric);
+            this.panelMenu.Controls.Add(this.ColumnCountsNumeric);
+            this.panelMenu.Controls.Add(this.ColumnCountsLabel);
+            this.panelMenu.Location = new System.Drawing.Point(383, 0);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(100, 168);
+            this.panelMenu.TabIndex = 8;
             // 
-            // panel2
+            // panelGame
             // 
-            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel2.BackColor = System.Drawing.Color.LightGray;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(377, 377);
-            this.panel2.TabIndex = 9;
-            this.panel2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseClick);
+            this.panelGame.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelGame.BackColor = System.Drawing.Color.LightGray;
+            this.panelGame.Location = new System.Drawing.Point(0, 0);
+            this.panelGame.Name = "panelGame";
+            this.panelGame.Size = new System.Drawing.Size(377, 377);
+            this.panelGame.TabIndex = 9;
+            this.panelGame.Paint += new System.Windows.Forms.PaintEventHandler(this.panelGame_Paint);
+            this.panelGame.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseClick);
             // 
             // Form1
             // 
@@ -151,14 +152,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(485, 378);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelGame);
+            this.Controls.Add(this.panelMenu);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.RowCountsNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ColumnCountsNumeric)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelMenu.ResumeLayout(false);
+            this.panelMenu.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -171,8 +172,8 @@
         private System.Windows.Forms.NumericUpDown ColumnCountsNumeric;
         private System.Windows.Forms.Label ColorsLabel;
         private System.Windows.Forms.ComboBox ColorsCounts;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelMenu;
+        private System.Windows.Forms.Panel panelGame;
     }
 }
 

@@ -12,6 +12,8 @@ namespace clickmania
         private int rowCounts;
         private int columnCounts;
         private int colorsCounts;
+        private int rowIndex;
+        private int colIndex;
         private Cubs[,] field; //создаем массив кубиков - игровое поле
 
         public Game(int rowCounts, int columnCounts, int colorsCounts) // just конструктор
@@ -30,20 +32,21 @@ namespace clickmania
         public int ColorsCount { get { return colorsCounts; } }
 
 
-        // public int this[int rowIndex, int colIndex] { get; } // хз че это, но Димасик сказал делать
+       //  public int this[int rowIndex, int colIndex] // хз че это, но Димасик сказал делать
+      //  {
+      //      get { return ;}
+      //  } 
 
 
         public int Score { get; }
 
 
         public bool Finish { get; }
-
-        public int rowClick;
-        public int columnClick;
+        
         public void Click(int colIndex, int rowIndex) // получает индексы нажатия и выясняет строку и колонку 
         {
-             rowClick = rowIndex / 25;
-             columnClick = colIndex / 25;
+            int rowClick = rowIndex / 25;
+            int columnClick = colIndex / 25;
 
             field[rowClick,columnClick].Deleted = true;
         }
