@@ -39,7 +39,6 @@ namespace ClickmaniaFinal
         {
             if (game == null)
                 return;
-
             ScoreText.Text = Convert.ToString(game.Score);
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias; // Сглаживания 
             
