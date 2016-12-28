@@ -43,19 +43,22 @@ namespace ClickmaniaFinal
             if (this.rowIndex < rowCounts && this.colIndex < columnCounts)
             {
                 Nieghbor(this.rowIndex, this.colIndex, field[this.rowIndex, this.colIndex]);// костыль
-                SorticMatrix();
-                FallColumn();
+                FallRows();
+                //IsColumnEmpty();
+                FallColumns();
             }
             if (index == 0)
                 return false;
             index = 0; // костыль
             return true;
         }
+
+
         private void CreateField() // забиваем матрицу рандомными числами 
         {
             field = new int[rowCounts, columnCounts];
 
-            for(int rows = 0; rows < rowCounts; rows++)
+            for (int rows = 0; rows < rowCounts; rows++)
                 for (int columns = 0; columns < columnCounts; columns++)
                 {
                     field[rows, columns] = rnd.Next(1, colorsCounts);
@@ -81,87 +84,70 @@ namespace ClickmaniaFinal
             score += (int)Math.Pow(scoreColor, index); // очки начисляем 
         }
 
-        private bool CheckEnd(int rows, int column)
+        private bool IsColumnEmpty(int colIndex)
         {
-            int a =  0;
-            for (int i = rows; i > 0; i--)
+            for (int r = 0; r < rowCounts; r++)
             {
-                if (field[i, column] != 0)
-                    a++;
+                if (field[r, colIndex] != 0)
+                    return false;
             }
-            if (a > 0)
-                return true;
-            else  return false;    
+            return true;
         }
-        private void FallColumn()
+
+
+        private void CopyColToCol(int colFrom, int toCol)
+        {
+            for (int row = 0; row < rowCounts; row++)
+            {
+                field[row, toCol] = field[row, colFrom];
+            }
+        }
+
+        private void SetColZero(int col)
+        {
+            for (int row = 0; row < rowCounts; row++)
+            {
+                field[row, col] = 0;
+            }
+        }
+
+        private void FallColumns()
+        {
+            int index1 = 0;
+            for (int col = 0; col < columnCounts; col++)
+            {
+                if (!IsColumnEmpty(col))
+                {
+                    CopyColToCol(col, index1);
+                    index1++;
+                }
+            }
+
+            for (; index1 < columnCounts; index1++)
+            {
+                SetColZero(index1);
+            }
+
+        }
+
+        private void FallRows()
         {
             for (int cols = 0; cols < columnCounts; cols++)
             {
-                int count = 0;
-                for (int rows = rowCounts - 1; rows > 0; rows--)
+                int index1 = rowCounts - 1;
+                for (int rows = rowCounts - 1; rows >= 0; rows--)
                 {
-                    if (field[rows, cols] == 0)
-                        count++;
+                    if (field[rows, cols] != 0)
+                    {
+                        field[index1, cols] = field[rows, cols];
+                        index1--;
+                    }
                 }
 
-                if (count == rowCounts - 1)
+                for (; index1 >= 0; index1--)
                 {
-                    SorticMatrixColumns(cols);
+                    field[index1, cols] = 0;
                 }
-            }
-        }
-        private bool CheckEndColumn(int column)
-        {
-            int a = 0;
-            for (int i = column; i < columnCounts; i++)
-            {
-                if (field[rowCounts-1, i] != 0)
-                    a++;
-            }
-            if (a > 0)
-                return true;
-            else return false;
-        }
-        private void SorticMatrixColumns(int cols)
-        {
-            int count;
-            do
-            {
-                count = 0;
-                for (int col = cols; col < columnCounts - 1; col++)
-                {
-                    for (int rows = rowCounts - 1; rows > -1; rows--)
-                    {
-                        field[rows, col] = field[rows, col + 1];
-                        field[rows, col + 1] = 0;
-                    }
-                    if (field[rowCounts - 1, col] == 0 && CheckEndColumn(col))
-                        count++;
-                }
-            } while (count > 0);
-        }
-
-        private void SorticMatrix()
-        {
-            for (int cols = 0; cols < columnCounts; cols++)
-            {
-                int index1;
-                do
-                {
-                    index1 = 0;
-                    for (int rows = rowCounts - 1; rows > 0; rows--)
-                    {
-                        if (field[rows, cols] == 0 && CheckEnd(rows, cols))
-                        {
-                            index1++;
-                        }
-                        if (field[rows, cols] == 0)
-                        {
-                            field[rows, cols] = field[rows - 1, cols];
-                            field[rows - 1, cols] = 0;
-                        }
-                    }
-                } while (index1 > 0);
             }
         }
     }
